@@ -1,7 +1,10 @@
-# Proyecto Grupal 2 - Despliegue de Servicios con Docker
+# Proyecto Grupal 6 - Despliegue de Servicios con Docker
 
 ## Integrantes
-* Tu Nombre - Servicio 1 (Backend API)
+* ALEXANDER WILFRIDO CARRION CAÑAR 
+* FELIX ESTEBAN NARVAEZ CRIOLLO
+* LUIS ROLANDO SANGUCHO TENORIO
+* KATHERINE GABRIELA VARGAS CHIRAU
 
 ## Descripción
 Este sistema despliega una arquitectura de microservicios contenerizada.
