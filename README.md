@@ -1,0 +1,28 @@
+# Proyecto Grupal 2 - Despliegue de Servicios con Docker
+
+## Integrantes
+* Tu Nombre - Servicio 1 (Backend API)
+
+## Descripción
+Este sistema despliega una arquitectura de microservicios contenerizada.
+
+## Requisitos
+* Docker y Docker Compose instalados.
+* Git instalado.
+
+## Instrucciones de Ejecución
+Para levantar el proyecto, ejecute los siguientes comandos en la terminal:
+
+1. Clonar el repositorio:
+   ```bash
+   git clone [https://github.com/tu-usuario/proyecto-grupal-docker.git](https://github.com/tu-usuario/proyecto-grupal-docker.git)
+   cd proyecto-grupal-docker
+   ```
+
+2. Construir y levantar los contenedores:
+   ```bash
+   docker compose up --build
+   ```
+
+3. Verificar funcionamiento:
+   * API Backend: Abrir navegador en http://localhost:5000/health

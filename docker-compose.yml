@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend        # Ruta al Dockerfile del Servicio 1
+    container_name: api-rest-service
+    ports:
+      - "5000:5000"         # Expone puerto 5000 (Host:Contenedor)
+    networks:
+      - app-network
+    environment:
+      - DB_HOST=database    # Preparación para conectar con Servicio 2
+
+networks:
+  app-network:
+    driver: bridge
