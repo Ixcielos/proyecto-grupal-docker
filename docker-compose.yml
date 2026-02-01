@@ -1,7 +1,7 @@
 version: '3.8'
 
 services:
-  backend:
+  backend: # Servicio 1 - API REST
     build: ./backend        # Ruta al Dockerfile del Servicio 1
     container_name: api-rest-service
     ports:
@@ -10,6 +10,25 @@ services:
       - app-network
     environment:
       - DB_HOST=database    # Preparación para conectar con Servicio 2
+      - DB_USER=admin
+      - DB_PASSWORD=1234
+      - DB_NAME=proyecto_db  
+    depends_on:
+      - database # Fin servicio 1 - API REST
+
+  database: # Servicio 2 - Base de Datos PostgreSQL
+    image: postgres:15
+    container_name: db_proyecto
+    restart: always
+    env_file:
+      - ./database/.env
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+volumes:
+  db_data: # Fin servicio 2 - Base de Datos PostgreSQL
 
 networks:
   app-network:
