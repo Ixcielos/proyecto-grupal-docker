@@ -1,6 +1,8 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app) # <--- Esto permite que el frontend lea los datos
 
 @app.route('/health', methods=['GET'])
 def health_check():
@@ -12,3 +14,4 @@ def get_data():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+    

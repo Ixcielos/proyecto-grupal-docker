@@ -1,7 +1,6 @@
-version: '3.8'
-
 services:
-  backend: # Servicio 1 - API REST
+  # Servicio 1 - API REST
+  backend:
     build: ./backend        # Ruta al Dockerfile del Servicio 1
     container_name: api-rest-service
     networks:
@@ -10,33 +9,47 @@ services:
       - DB_HOST=database    # Preparación para conectar con Servicio 2
       - DB_USER=admin
       - DB_PASSWORD=1234
-      - DB_NAME=proyecto_db  
+      - DB_NAME=proyecto_db
     depends_on:
       - database # Fin servicio 1 - API REST
 
-  database: # Servicio 2 - Base de Datos PostgreSQL
+  # Servicio 2 - Base de Datos PostgreSQL
+  database:
     image: postgres:15
     container_name: db_proyecto
     restart: always
-    env_file:
-      - ./database/.env
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=1234
+      - POSTGRES_DB=proyecto_db
     volumes:
       - db_data:/var/lib/postgresql/data
     networks:
       - app-network
 
-  gateway: # Servicio 5 - Reverse Proxy / Gateway
+  # Servicio 3 - Frontend web
+  frontend:
+    build: ./frontend        # Ruta al Dockerfile del Servicio 3
+    container_name: web-frontend
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  # Servicio 4 - Reverse Proxy / Gateway
+  gateway:
     build: ./gateway
     container_name: reverse-proxy
     ports:
       - "8080:80"           # Único puerto expuesto al exterior
     depends_on:
       - backend
+      - frontend
     networks:
       - app-network
 
 volumes:
-  db_data: # Fin servicio 2 - Base de Datos PostgreSQL
+  db_data: # Persistencia de datos para PostgreSQL
 
 networks:
   app-network:

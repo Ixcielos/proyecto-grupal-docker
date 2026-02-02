@@ -1,0 +1,67 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.logo {
+    width: 150px;
+    margin-bottom: 20px;
+}
+
+header h1 { font-size: 1.4rem; color: #1a3a5a; margin-bottom: 5px; }
+header h2 { font-size: 1.2rem; margin-bottom: 5px; }
+header h3 { font-size: 1.1rem; color: #555; }
+
+.section { margin: 25px 0; }
+
+.highlight {
+    border-top: 2px solid #1a3a5a;
+    border-bottom: 2px solid #1a3a5a;
+    padding: 15px 0;
+    background-color: #f9f9f9;
+}
+
+.integrantes {
+    list-style: none;
+    padding: 0;
+}
+
+.integrantes li { font-weight: 500; }
+
+.backend-info {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px dashed #ccc;
+}
+
+#mensaje {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.loading { color: #e67e22; background: #fef5e7; }
+.success { color: #27ae60; background: #eafaf1; border: 1px solid #27ae60; }
+.error { color: #c0392b; background: #fdedec; border: 1px solid #c0392b; }
+
+.Beneficios {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
