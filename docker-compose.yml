@@ -4,8 +4,6 @@ services:
   backend: # Servicio 1 - API REST
     build: ./backend        # Ruta al Dockerfile del Servicio 1
     container_name: api-rest-service
-    ports:
-      - "5000:5000"         # Expone puerto 5000 (Host:Contenedor)
     networks:
       - app-network
     environment:
@@ -24,6 +22,16 @@ services:
       - ./database/.env
     volumes:
       - db_data:/var/lib/postgresql/data
+    networks:
+      - app-network
+
+  gateway: # Servicio 5 - Reverse Proxy / Gateway
+    build: ./gateway
+    container_name: reverse-proxy
+    ports:
+      - "8080:80"           # Único puerto expuesto al exterior
+    depends_on:
+      - backend
     networks:
       - app-network
 

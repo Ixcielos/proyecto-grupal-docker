@@ -7,7 +7,7 @@
 * KATHERINE GABRIELA VARGAS CHIRAU
 
 ## Descripción
-Este sistema despliega una arquitectura de microservicios contenerizada.
+Este sistema despliega una arquitectura de microservicios contenerizada con un Reverse Proxy (Nginx) que centraliza el acceso al backend y al frontend.
 
 ## Requisitos
 * Docker y Docker Compose instalados.
@@ -27,5 +27,7 @@ Para levantar el proyecto, ejecute los siguientes comandos en la terminal:
    docker compose up --build
    ```
 
-3. Verificar funcionamiento:
-   * API Backend: Abrir navegador en http://localhost:5000/health
+3. Verificar funcionamiento (solo se expone el gateway):
+   * API Backend vía Gateway: http://localhost:8080/api/health
+   * API Backend vía Gateway: http://localhost:8080/api/data
+   * Frontend vía Gateway: http://localhost:8080/
